@@ -24,8 +24,8 @@ function createRainbowSegment() {
         segment.appendChild(colorBlock);
     });
     
-    // Position segment starting from behind the cat (right side of cat)
-    // Cat is at 50%, so segments start there and flow left
+    // Position segment starting from the cat's left edge
+    // Cat is at 50%, segments spawn at cat's edge and flow left to trail behind
     segment.style.left = `calc(50% - ${CAT_OFFSET}px)`; // Start from cat's left edge
     
     // Add slight vertical wave variation
