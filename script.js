@@ -1,5 +1,6 @@
 // Sparkle generation
 const sparklesContainer = document.querySelector('.sparkles-container');
+const SPARKLE_DURATION = 1500; // Should match CSS animation duration
 
 function createSparkle() {
     const sparkle = document.createElement('div');
@@ -23,7 +24,7 @@ function createSparkle() {
     // Remove sparkle after animation completes
     setTimeout(() => {
         sparkle.remove();
-    }, 1500);
+    }, SPARKLE_DURATION);
 }
 
 // Create sparkles at random intervals
