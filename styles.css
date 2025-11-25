@@ -41,82 +41,38 @@ body {
     transform: translateY(-50%);
     z-index: 2;
     overflow: visible;
-    height: 100px;
+    height: 98px; /* 7 colors * 14px */
+    pointer-events: none;
+}
+
+.rainbow-segment {
+    position: absolute;
+    width: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    animation: flowSegment 3s linear forwards;
+    transform-origin: center;
 }
 
-.rainbow-frame {
-    position: absolute;
-    right: 0;
-    width: 4em;
-    height: 14px;
-    animation: flowOut 0.8s ease-out forwards;
+.rainbow-block {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
 }
 
-/* Individual color frames */
-.rainbow-red {
-    background: #ff0000;
-    top: 0;
-    animation-delay: 0s;
-}
-
-.rainbow-orange {
-    background: #ff9900;
-    top: 14px;
-    animation-delay: 0.05s;
-}
-
-.rainbow-yellow {
-    background: #ffff00;
-    top: 28px;
-    animation-delay: 0.1s;
-}
-
-.rainbow-green {
-    background: #33ff00;
-    top: 42px;
-    animation-delay: 0.15s;
-}
-
-.rainbow-blue {
-    background: #0099ff;
-    top: 56px;
-    animation-delay: 0.2s;
-}
-
-.rainbow-indigo {
-    background: #6633ff;
-    top: 70px;
-    animation-delay: 0.25s;
-}
-
-.rainbow-violet {
-    background: #9933ff;
-    top: 84px;
-    animation-delay: 0.3s;
-}
-
-@keyframes flowOut {
+@keyframes flowSegment {
     0% {
-        width: 0;
-        transform: translateY(0);
+        transform: translateX(0) translateY(var(--wave-offset, 0px));
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
     }
     100% {
-        width: 100vw;
-        transform: translateY(calc(var(--wave-offset, 0px)));
+        transform: translateX(-120vw) translateY(var(--wave-offset, 0px));
+        opacity: 0;
     }
 }
-
-/* Add wave variation to each frame */
-.rainbow-red { --wave-offset: -3px; }
-.rainbow-orange { --wave-offset: -2px; }
-.rainbow-yellow { --wave-offset: 0px; }
-.rainbow-green { --wave-offset: 2px; }
-.rainbow-blue { --wave-offset: 3px; }
-.rainbow-indigo { --wave-offset: 2px; }
-.rainbow-violet { --wave-offset: 0px; }
 
 /* Sparkles */
 .sparkles-container {
