@@ -7,21 +7,22 @@ function seededRandom(seed) {
   return x - Math.floor(x)
 }
 
-function Star({ style }) {
-  return <div className="star" style={style} />
+function Star({ style, size }) {
+  return <div className={`star ${size}`} style={style} />
 }
 
 function Stars() {
   const stars = useMemo(() => {
-    return Array.from({ length: 50 }, (_, i) => ({
+    const sizes = ['small', 'medium', 'large']
+    return Array.from({ length: 40 }, (_, i) => ({
       id: i,
+      size: sizes[Math.floor(seededRandom(i * 41) * 3)],
       style: {
         left: `${seededRandom(i * 7) * 100}%`,
         top: `${seededRandom(i * 13) * 100}%`,
-        width: `${seededRandom(i * 17) * 4 + 2}px`,
-        height: `${seededRandom(i * 23) * 4 + 2}px`,
         animationDelay: `${seededRandom(i * 29) * 2}s`,
         animationDuration: `${seededRandom(i * 31) * 1 + 0.5}s`,
+        animation: `star-twinkle ${seededRandom(i * 31) * 1 + 0.5}s ${seededRandom(i * 29) * 2}s infinite`,
       }
     }))
   }, [])
@@ -29,7 +30,7 @@ function Stars() {
   return (
     <div className="stars">
       {stars.map(star => (
-        <Star key={star.id} style={star.style} />
+        <Star key={star.id} style={star.style} size={star.size} />
       ))}
     </div>
   )
@@ -38,82 +39,23 @@ function Stars() {
 function Rainbow() {
   return (
     <div className="rainbow">
-      <div className="rainbow-stripe" />
-      <div className="rainbow-stripe" />
-      <div className="rainbow-stripe" />
-      <div className="rainbow-stripe" />
-      <div className="rainbow-stripe" />
-      <div className="rainbow-stripe" />
+      <div className="rainbow-segment">
+        <div className="rainbow-stripe" />
+        <div className="rainbow-stripe" />
+        <div className="rainbow-stripe" />
+        <div className="rainbow-stripe" />
+        <div className="rainbow-stripe" />
+        <div className="rainbow-stripe" />
+      </div>
     </div>
-  )
-}
-
-function Sprinkles() {
-  const sprinkles = useMemo(() => {
-    const colors = ['#ff3366', '#ff6699', '#ff0000', '#ff66cc', '#ff3399']
-    return Array.from({ length: 8 }, (_, i) => ({
-      id: i,
-      style: {
-        left: `${10 + (i % 4) * 15}px`,
-        top: `${8 + Math.floor(i / 4) * 18}px`,
-        background: colors[i % colors.length],
-      }
-    }))
-  }, [])
-
-  return (
-    <>
-      {sprinkles.map(sprinkle => (
-        <div key={sprinkle.id} className="sprinkle" style={sprinkle.style} />
-      ))}
-    </>
   )
 }
 
 function NyanCat() {
   return (
     <div className="nyan-cat">
-      {/* Cat tail */}
-      <div className="cat-tail" />
-      
-      {/* Pop-tart body */}
-      <div className="poptart">
-        <div className="frosting">
-          <Sprinkles />
-        </div>
-      </div>
-      
-      {/* Cat head */}
-      <div className="cat-head">
-        {/* Ears */}
-        <div className="cat-ear left" />
-        <div className="cat-ear right" />
-        <div className="cat-ear-inner left" />
-        <div className="cat-ear-inner right" />
-        
-        {/* Eyes */}
-        <div className="cat-eyes">
-          <div className="cat-eye" />
-          <div className="cat-eye" />
-        </div>
-        
-        {/* Cheeks */}
-        <div className="cat-cheeks">
-          <div className="cat-cheek" />
-          <div className="cat-cheek" />
-        </div>
-        
-        {/* Mouth */}
-        <div className="cat-mouth" />
-      </div>
-      
-      {/* Cat legs */}
-      <div className="cat-legs">
-        <div className="cat-leg" />
-        <div className="cat-leg" />
-        <div className="cat-leg" />
-        <div className="cat-leg" />
-      </div>
+      <div className="nyan-sprite frame1" />
+      <div className="nyan-sprite frame2" />
     </div>
   )
 }
