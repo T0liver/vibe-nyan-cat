@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Pop-tart body -->
+  <rect x="4" y="8" width="20" height="16" rx="2" fill="#ffcc99"/>
+  <!-- Pink frosting -->
+  <rect x="6" y="10" width="16" height="12" rx="1" fill="#ff99aa"/>
+  <!-- Sprinkles -->
+  <rect x="8" y="12" width="2" height="2" fill="#ff3366"/>
+  <rect x="12" y="14" width="2" height="2" fill="#ff6699"/>
+  <rect x="16" y="12" width="2" height="2" fill="#ff0000"/>
+  <rect x="10" y="18" width="2" height="2" fill="#ff66cc"/>
+  <!-- Cat head -->
+  <ellipse cx="26" cy="16" rx="5" ry="6" fill="#999"/>
+  <!-- Cat ears -->
+  <polygon points="22,6 24,12 20,12" fill="#999"/>
+  <polygon points="30,6 32,12 28,12" fill="#999"/>
+  <!-- Cat eyes -->
+  <circle cx="24" cy="14" r="1" fill="#333"/>
+  <circle cx="28" cy="14" r="1" fill="#333"/>
+  <!-- Cat cheeks -->
+  <ellipse cx="23" cy="17" rx="1.5" ry="1" fill="#ff6699"/>
+  <ellipse cx="29" cy="17" rx="1.5" ry="1" fill="#ff6699"/>
+</svg>
