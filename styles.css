@@ -47,7 +47,6 @@ body {
 
 .rainbow-segment {
     position: absolute;
-    width: 60px;
     display: flex;
     flex-direction: column;
     animation: flowSegment 3s linear forwards;

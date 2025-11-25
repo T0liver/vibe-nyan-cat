@@ -11,9 +11,10 @@ let segmentCounter = 0;
 function createRainbowSegment() {
     const segment = document.createElement('div');
     segment.className = 'rainbow-segment';
+    segment.style.width = `${SEGMENT_WIDTH}px`;
     
     // Create the vertical column of colors
-    colors.forEach((color, index) => {
+    colors.forEach(color => {
         const colorBlock = document.createElement('div');
         colorBlock.className = 'rainbow-block';
         colorBlock.style.background = color;
