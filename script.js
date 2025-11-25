@@ -5,7 +5,6 @@ const SEGMENT_WIDTH = 60; // Width of each rainbow segment in pixels
 const SEGMENT_HEIGHT = 14; // Height of each color band
 const SEGMENT_DURATION = 3000; // How long segments stay on screen
 const SEGMENT_INTERVAL = 50; // Time between creating new segments (reduced to close gaps)
-const CAT_OFFSET = 30; // Offset from center to cat's left edge in pixels
 
 let segmentCounter = 0;
 
@@ -24,9 +23,9 @@ function createRainbowSegment() {
         segment.appendChild(colorBlock);
     });
     
-    // Position segment starting from the cat's left edge
-    // Cat is at 50%, segments spawn at cat's edge and flow left to trail behind
-    segment.style.left = `calc(50% - ${CAT_OFFSET}px)`; // Start from cat's left edge
+    // Position segment at the center of the screen (where the cat is)
+    // Cat is at 50%, segments spawn at center and flow left to trail behind
+    segment.style.left = '50%'; // Start from center (behind the cat)
     
     // Add slight vertical wave variation
     const waveOffset = Math.sin(segmentCounter * 0.3) * 8;
