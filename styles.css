@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #003;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Nyan Cat */
+.nyan-cat {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.nyan-cat img {
+    width: 250px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Rainbow */
+.rainbow-container {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    overflow: hidden;
+    height: 100px;
+}
+
+.rainbow {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        #ff0000 0px,
+        #ff0000 16px,
+        #ff9900 16px,
+        #ff9900 32px,
+        #ffff00 32px,
+        #ffff00 48px,
+        #33ff00 48px,
+        #33ff00 64px,
+        #0099ff 64px,
+        #0099ff 80px,
+        #6633ff 80px,
+        #6633ff 96px
+    );
+    animation: waveRainbow 1s ease-in-out infinite;
+}
+
+@keyframes waveRainbow {
+    0% {
+        transform: translateY(0px);
+    }
+    25% {
+        transform: translateY(-8px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    75% {
+        transform: translateY(8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Sparkles */
+.sparkles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.sparkle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    box-shadow: 
+        0 0 3px #fff,
+        0 0 6px #fff;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    animation: sparkleAnimation 1.5s ease-in-out forwards;
+}
+
+.sparkle::before,
+.sparkle::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+}
+
+/* Pixelated star/sparkle shape */
+.sparkle::before {
+    width: 4px;
+    height: 12px;
+    left: 4px;
+    top: 0;
+}
+
+.sparkle::after {
+    width: 12px;
+    height: 4px;
+    top: 4px;
+    left: 0;
+}
+
+@keyframes sparkleAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5) rotate(360deg);
+    }
+}
