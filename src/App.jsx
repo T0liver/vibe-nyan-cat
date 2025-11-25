@@ -20,8 +20,6 @@ function Stars() {
       style: {
         left: `${seededRandom(i * 7) * 100}%`,
         top: `${seededRandom(i * 13) * 100}%`,
-        animationDelay: `${seededRandom(i * 29) * 2}s`,
-        animationDuration: `${seededRandom(i * 31) * 1 + 0.5}s`,
         animation: `star-twinkle ${seededRandom(i * 31) * 1 + 0.5}s ${seededRandom(i * 29) * 2}s infinite`,
       }
     }))

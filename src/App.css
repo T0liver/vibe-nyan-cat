@@ -298,7 +298,7 @@
     36px 20px 0 #999999,
     36px 24px 0 #999999;
     
-  animation: sprite-frame1 0.12s steps(1) infinite;
+  animation: sprite-frame1 0.12s linear infinite;
 }
 
 .nyan-sprite.frame2 {
@@ -458,7 +458,7 @@
     20px 28px 0 #999999,
     36px 20px 0 #999999;
     
-  animation: sprite-frame2 0.12s steps(1) infinite;
+  animation: sprite-frame2 0.12s linear infinite;
 }
 
 @keyframes sprite-frame1 {
