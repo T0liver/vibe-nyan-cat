@@ -39,51 +39,84 @@ body {
     left: 0;
     right: 50%;
     transform: translateY(-50%);
-    z-index: 1;
-    overflow: hidden;
+    z-index: 2;
+    overflow: visible;
     height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.rainbow {
+.rainbow-frame {
     position: absolute;
     right: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        to bottom,
-        #ff0000 0px,
-        #ff0000 16px,
-        #ff9900 16px,
-        #ff9900 32px,
-        #ffff00 32px,
-        #ffff00 48px,
-        #33ff00 48px,
-        #33ff00 64px,
-        #0099ff 64px,
-        #0099ff 80px,
-        #6633ff 80px,
-        #6633ff 96px
-    );
-    animation: waveRainbow 1s ease-in-out infinite;
+    width: 4em;
+    height: 14px;
+    animation: flowOut 0.8s ease-out forwards;
 }
 
-@keyframes waveRainbow {
+/* Individual color frames */
+.rainbow-red {
+    background: #ff0000;
+    top: 0;
+    animation-delay: 0s;
+}
+
+.rainbow-orange {
+    background: #ff9900;
+    top: 14px;
+    animation-delay: 0.05s;
+}
+
+.rainbow-yellow {
+    background: #ffff00;
+    top: 28px;
+    animation-delay: 0.1s;
+}
+
+.rainbow-green {
+    background: #33ff00;
+    top: 42px;
+    animation-delay: 0.15s;
+}
+
+.rainbow-blue {
+    background: #0099ff;
+    top: 56px;
+    animation-delay: 0.2s;
+}
+
+.rainbow-indigo {
+    background: #6633ff;
+    top: 70px;
+    animation-delay: 0.25s;
+}
+
+.rainbow-violet {
+    background: #9933ff;
+    top: 84px;
+    animation-delay: 0.3s;
+}
+
+@keyframes flowOut {
     0% {
-        transform: translateY(0px);
-    }
-    25% {
-        transform: translateY(-8px);
-    }
-    50% {
-        transform: translateY(0px);
-    }
-    75% {
-        transform: translateY(8px);
+        width: 0;
+        transform: translateY(0);
     }
     100% {
-        transform: translateY(0px);
+        width: 100vw;
+        transform: translateY(calc(var(--wave-offset, 0px)));
     }
 }
+
+/* Add wave variation to each frame */
+.rainbow-red { --wave-offset: -3px; }
+.rainbow-orange { --wave-offset: -2px; }
+.rainbow-yellow { --wave-offset: 0px; }
+.rainbow-green { --wave-offset: 2px; }
+.rainbow-blue { --wave-offset: 3px; }
+.rainbow-indigo { --wave-offset: 2px; }
+.rainbow-violet { --wave-offset: 0px; }
 
 /* Sparkles */
 .sparkles-container {
@@ -93,7 +126,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 2;
+    z-index: 1;
 }
 
 .sparkle {
