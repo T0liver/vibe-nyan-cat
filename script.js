@@ -89,10 +89,53 @@ window.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
     const nyanImg = document.getElementById('nyan-img');
     const nyanAudio = document.getElementById('nyan-audio');
+    const stopwatch = document.getElementById('stopwatch');
+    
+    let startTime = null;
+    let stopwatchInterval = null;
+    
+    function formatStopwatch(elapsedMs) {
+        const totalSeconds = Math.floor(elapsedMs / 1000);
+        const seconds = totalSeconds % 60;
+        const totalMinutes = Math.floor(totalSeconds / 60);
+        const minutes = totalMinutes % 60;
+        const totalHours = Math.floor(totalMinutes / 60);
+        const hours = totalHours % 24;
+        const days = Math.floor(totalHours / 24);
+        
+        // Build the display string with only relevant parts
+        const parts = [];
+        
+        if (days > 0) {
+            parts.push(`${days} day${days !== 1 ? 's' : ''}`);
+        }
+        if (hours > 0 || days > 0) {
+            parts.push(`${String(hours).padStart(2, '0')} hour${hours !== 1 ? 's' : ''}`);
+        }
+        if (minutes > 0 || hours > 0 || days > 0) {
+            parts.push(`${String(minutes).padStart(2, '0')} minute${minutes !== 1 ? 's' : ''}`);
+        }
+        parts.push(`${String(seconds).padStart(2, '0')} second${seconds !== 1 ? 's' : ''}`);
+        
+        return parts.join(' : ');
+    }
+    
+    function updateStopwatch() {
+        if (startTime) {
+            const elapsed = Date.now() - startTime;
+            stopwatch.textContent = formatStopwatch(elapsed);
+        }
+    }
     
     startButton.addEventListener('click', () => {
         // Hide the start button
         startButton.style.display = 'none';
+        
+        // Show and start the stopwatch
+        stopwatch.style.display = 'block';
+        startTime = Date.now();
+        stopwatch.textContent = formatStopwatch(0);
+        stopwatchInterval = setInterval(updateStopwatch, 1000);
         
         // Switch from PNG to GIF
         nyanImg.src = 'src/nyan.gif';
