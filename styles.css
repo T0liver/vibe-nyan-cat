@@ -164,3 +164,30 @@ body {
 .start-button:active {
     transform: translateX(-50%) scale(0.95);
 }
+
+/* Copyright */
+.copyright {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    text-align: center;
+    color: #4466aa;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+}
+
+.copyright p {
+    margin: 2px 0;
+}
+
+.copyright a {
+    color: #5577bb;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.copyright a:hover {
+    color: #6688cc;
+}
