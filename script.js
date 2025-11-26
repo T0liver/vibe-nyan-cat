@@ -83,9 +83,6 @@ function startSparkles() {
     }, 300);
 }
 
-let rainbowInterval = null;
-let sparklesInterval = null;
-
 // Start button functionality
 window.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('start-button');
@@ -100,16 +97,18 @@ window.addEventListener('DOMContentLoaded', () => {
         nyanImg.src = 'src/nyan.gif';
         
         // Start rainbow animation
-        rainbowInterval = setInterval(() => {
+        setInterval(() => {
             createRainbowSegment();
         }, SEGMENT_INTERVAL);
         
         // Start sparkles animation
-        sparklesInterval = setInterval(() => {
+        setInterval(() => {
             createSparkle();
         }, 300);
         
         // Play audio
-        nyanAudio.play();
+        nyanAudio.play().catch(error => {
+            console.error('Failed to play audio:', error);
+        });
     });
 });
