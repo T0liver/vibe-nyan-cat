@@ -141,14 +141,10 @@ startButton.addEventListener('click', () => {
     nyanImg.src = 'src/nyan.gif';
     
     // Start rainbow animation
-    setInterval(() => {
-        createRainbowSegment();
-    }, SEGMENT_INTERVAL);
+    startRainbow();
     
     // Start sparkles animation
-    setInterval(() => {
-        createSparkle();
-    }, SPARKLE_INTERVAL);
+    startSparkles();
     
     // Play audio
     nyanAudio.play().catch(error => {
