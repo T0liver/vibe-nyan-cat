@@ -50,6 +50,7 @@ function startRainbow() {
 // Sparkle generation
 const sparklesContainer = document.querySelector('.sparkles-container');
 const SPARKLE_DURATION = 1500; // Should match CSS animation duration
+const SPARKLE_INTERVAL = 300; // Time between creating new sparkles
 
 function createSparkle() {
     const sparkle = document.createElement('div');
@@ -80,11 +81,35 @@ function createSparkle() {
 function startSparkles() {
     setInterval(() => {
         createSparkle();
-    }, 300);
+    }, SPARKLE_INTERVAL);
 }
 
-// Start the effects when page loads
+// Start button functionality
 window.addEventListener('DOMContentLoaded', () => {
-    startRainbow();
-    startSparkles();
+    const startButton = document.getElementById('start-button');
+    const nyanImg = document.getElementById('nyan-img');
+    const nyanAudio = document.getElementById('nyan-audio');
+    
+    startButton.addEventListener('click', () => {
+        // Hide the start button
+        startButton.style.display = 'none';
+        
+        // Switch from PNG to GIF
+        nyanImg.src = 'src/nyan.gif';
+        
+        // Start rainbow animation
+        setInterval(() => {
+            createRainbowSegment();
+        }, SEGMENT_INTERVAL);
+        
+        // Start sparkles animation
+        setInterval(() => {
+            createSparkle();
+        }, SPARKLE_INTERVAL);
+        
+        // Play audio
+        nyanAudio.play().catch(error => {
+            console.error('Failed to play audio:', error);
+        });
+    });
 });

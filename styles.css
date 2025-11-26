@@ -134,3 +134,33 @@ body {
         transform: scale(0.5) rotate(360deg);
     }
 }
+
+/* Start Button */
+.start-button {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 15px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff0000, #ff9900, #ffff00, #33ff00, #0099ff, #6633ff);
+    border: 3px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+}
+
+.start-button:hover {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+.start-button:active {
+    transform: translateX(-50%) scale(0.95);
+}
