@@ -50,6 +50,7 @@ function startRainbow() {
 // Sparkle generation
 const sparklesContainer = document.querySelector('.sparkles-container');
 const SPARKLE_DURATION = 1500; // Should match CSS animation duration
+const SPARKLE_INTERVAL = 300; // Time between creating new sparkles
 
 function createSparkle() {
     const sparkle = document.createElement('div');
@@ -80,7 +81,7 @@ function createSparkle() {
 function startSparkles() {
     setInterval(() => {
         createSparkle();
-    }, 300);
+    }, SPARKLE_INTERVAL);
 }
 
 // Start button functionality
@@ -104,7 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // Start sparkles animation
         setInterval(() => {
             createSparkle();
-        }, 300);
+        }, SPARKLE_INTERVAL);
         
         // Play audio
         nyanAudio.play().catch(error => {
