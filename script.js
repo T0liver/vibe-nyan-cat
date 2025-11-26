@@ -83,8 +83,33 @@ function startSparkles() {
     }, 300);
 }
 
-// Start the effects when page loads
+let rainbowInterval = null;
+let sparklesInterval = null;
+
+// Start button functionality
 window.addEventListener('DOMContentLoaded', () => {
-    startRainbow();
-    startSparkles();
+    const startButton = document.getElementById('start-button');
+    const nyanImg = document.getElementById('nyan-img');
+    const nyanAudio = document.getElementById('nyan-audio');
+    
+    startButton.addEventListener('click', () => {
+        // Hide the start button
+        startButton.style.display = 'none';
+        
+        // Switch from PNG to GIF
+        nyanImg.src = 'src/nyan.gif';
+        
+        // Start rainbow animation
+        rainbowInterval = setInterval(() => {
+            createRainbowSegment();
+        }, SEGMENT_INTERVAL);
+        
+        // Start sparkles animation
+        sparklesInterval = setInterval(() => {
+            createSparkle();
+        }, 300);
+        
+        // Play audio
+        nyanAudio.play();
+    });
 });
