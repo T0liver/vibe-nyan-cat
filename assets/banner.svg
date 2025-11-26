@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#ff7eb3"/>
+      <stop offset="0.5" stop-color="#7afcff"/>
+      <stop offset="1" stop-color="#7b61ff"/>
+    </linearGradient>
+    <style>
+      .title { font: bold 64px 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill: white; }
+      .tag { font: 24px 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; fill: rgba(255,255,255,0.95); }
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <g transform="translate(0,0)">
+    <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="title">vibe-nyan-cat 🐱‍👤 🌈</text>
+    <text x="50%" y="70%" text-anchor="middle" class="tag">A Nyan cat running across the sky site!</text>
+  </g>
+</svg>
